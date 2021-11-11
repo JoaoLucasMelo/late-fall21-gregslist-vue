@@ -9,15 +9,15 @@
             <h5
              class="card-text m-2">{{house.description}}</h5>
           </div>
-          <div class="d-flex justify-content-end">
-                <button class="btn btn-outline-warning border-3 m-2"><i class="mdi mdi-24px text-dark mdi-pencil"></i></button>
-        <button class="btn border-3 btn-outline-danger m-2"><i class="mdi mdi-24px mdi-close"></i></button>
+          <div class="d-flex justify-content-end" v-if="house.creatorId === account.id">
+                <button data-bs-toggle="modal" data-bs-target="#house-modal" class="btn btn-outline-warning border-3 m-2"><i class="mdi mdi-24px text-dark mdi-pencil"></i></button>
+        <button  @click="remove" class="btn border-3 btn-outline-danger m-2"><i class="mdi mdi-24px mdi-close"></i></button>
         </div>
         </div>
       </div>
     </div>
 
-
+<HouseFormModal :house="house" />
   </div>
 </template>
 
@@ -28,6 +28,7 @@ import { useRoute, useRouter } from "vue-router"
 import { logger } from "../utils/Logger"
 import { houseService } from "../services/HouseService"
 import { AppState } from "../AppState"
+import Pop from "../utils/Pop"
 export default {
   setup(){
     const route = useRoute()
@@ -42,7 +43,18 @@ export default {
     })
     return {
 house: computed(() => AppState.activeHouse),
-account: computed(() => AppState.account)
+account: computed(() => AppState.account),
+async remove(){
+  try {
+    if (await Pop.confirm()) {
+    await houseService.remove()
+    router.push({ name: 'Houses' })
+    }
+  } catch (error) {
+    logger.error
+    Pop.toast('Failed to Delete', 'error')
+  }
+}
     }
   }}
 </script>

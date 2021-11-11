@@ -24,9 +24,8 @@
         </div> -->
       </div>
     </div>
-
-
   </div>
+  <HouseFormModal />
 </template>
 
 

@@ -1,13 +1,15 @@
 export class House {
 
-  constructor(data){
-  this.id = data.id
-  this.price = data.price 
-  this.description = data.description 
-  this.levels = data.levels 
-  this.year = data.year 
-  this.bedrooms = data.bedrooms
-  this.bathrooms = data.bathrooms
-  this.imgUrl = data.imgUrl 
+  constructor(houseData = {}){
+  this.id = houseData.id
+  this.price = houseData.price 
+  this.description = houseData.description 
+  this.levels = houseData.levels 
+  this.year = houseData.year 
+  this.bedrooms = houseData.bedrooms
+  this.bathrooms = houseData.bathrooms
+  this.imgUrl = houseData.imgUrl 
+  this.creatorId = houseData.creatorId
+  this.creator = houseData.creator || {}
   }
 }
