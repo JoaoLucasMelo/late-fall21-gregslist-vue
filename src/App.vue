@@ -1,19 +1,15 @@
 <template>
-  <main class="container-fluid d-flex">
+  <main class="container-fluid grow">
     <div class="row">
-      <div class="col-2 p-0 h-100">
+      <div class="col-md-2 p-0 grow d-flex">
         <Navbar />
       </div>
-      <div class="col-10">
+      <div class="col-md-10">
         <router-view />
       </div>
     </div>
   </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
-    </div>
-  </footer>
+  
 </template>
 
 <script>

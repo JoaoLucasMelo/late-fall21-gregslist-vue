@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4" v-for="c in cars" :key="c.id">
+      <div class="col-md-3" v-for="c in cars" :key="c.id">
         <Car :car="c" />
       </div>
     </div>

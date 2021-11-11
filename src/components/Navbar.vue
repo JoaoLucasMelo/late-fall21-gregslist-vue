@@ -1,10 +1,10 @@
 <template>
-  <nav class="bg-success px-3 h-100">
+  <nav class="bg-success wid h-100">
     <router-link class="d-flex" :to="{ name: 'Home' }">
-      <img class="img-fluid" alt="logo" src="../assets/img/GregsList.svg" />
+      <img class="img greg m-2" alt="logo" src="../assets/img/GregsList.svg" />
     </router-link>
-    <div id="navbarText">
-      <ul class="navbar-nav me-auto">
+    <div id="navbarText" class="d-flex justify-content-center">
+      <ul class="justify-content-center">
         <span>
           <button
             class="btn selectable text-success lighten-30 text-uppercase my-1"
@@ -16,7 +16,7 @@
 
           <div class="my-1" v-else>
             <div
-              class="dropdown-toggle selectable"
+              class="dropdown-toggle rounded selectable"
               data-bs-toggle="dropdown"
               aria-expanded="false"
               id="authDropdown"
@@ -24,7 +24,7 @@
               <img
                 :src="user.picture"
                 alt="user photo"
-                height="40"
+                height="30"
                 class="rounded"
               />
             </div>
@@ -51,27 +51,20 @@
             </div>
           </div>
         </span>
-        <li class="d-flex flex-column">
+        <li class="d-flex flex-column  my-5">
           <router-link
             :to="{ name: 'Cars' }"
-            class="btn selectable text-uppercase"
+            class="btn borded-0 btn-outline-light selectable text-uppercase "
           >
             Cars
           </router-link>
-          <!-- FIXME change to Houses -->
-          <!-- <router-link
-            :to="{ name: 'About' }"
-            class="btn text-success lighten-30 selectable text-uppercase"
+          <router-link
+            :to="{ name: 'Houses' }"
+            class="btn mt-2 btn-outline-light selectable text-uppercase"
           >
             Houses
-          </router-link> -->
-          <!-- FIXME change to Jobs -->
-          <!-- <router-link
-            :to="{ name: 'About' }"
-            class="btn text-success lighten-30 selectable text-uppercase"
-          >
-            Jobs
-          </router-link> -->
+          </router-link>
+
         </li>
       </ul>
     </div>
@@ -120,5 +113,12 @@ a:hover {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+.wid{
+  min-width: 20vh;
+  min-height: 100vh;
+}
+.greg{
+  width: 90%;
 }
 </style>
